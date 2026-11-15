@@ -1,28 +1,17 @@
-package com.tienda.pedidos;
+package com.tienda.pedidos.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-import java.time.LocalDateTime;
-
-@Entity
-public class Pedido {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PedidoResponseDTO {
     private Long id;
     private String clienteEmail;
-    private String tipoCliente; // REGULAR, VIP o MAYORISTA
+    private String tipoCliente;
     private Double subtotal;
     private Double descuento;
     private Double iva;
     private Double total;
     private String estado;
-    private String notasInternas; // uso exclusivo de logística
-    private LocalDateTime fechaCreacion;
+    // SIN notasInternas
 
-    // getters y setters (se generan abajo)
+    // getters y setters (se generan)
 
     public Long getId() {
         return id;
@@ -86,21 +75,5 @@ public class Pedido {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public String getNotasInternas() {
-        return notasInternas;
-    }
-
-    public void setNotasInternas(String notasInternas) {
-        this.notasInternas = notasInternas;
-    }
-
-    public LocalDateTime getFechaCreacion() {
-        return fechaCreacion;
-    }
-
-    public void setFechaCreacion(LocalDateTime fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
     }
 }
